@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Turbulent</title>
+  </head>
+  <body>
+    <svg style="display: none">
+      <defs>
+        <filter id="noise">
+          <feTurbulence
+            baseFrequency="0.7,0.8"
+            seed="0"
+            type="fractalNoise"
+            result="static"
+          >
+            <animate
+              attributeName="seed"
+              values="0;100"
+              dur="800ms"
+              repeatCount="1"
+              begin="card.mouseenter"
+            />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="static">
+            <animate
+              attributeName="scale"
+              values="0;40;0"
+              dur="800ms"
+              repeatCount="1"
+              begin="card.mouseenter"
+            />
+          </feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+    <div id="card">
+      <img
+        src="https://images.unsplash.com/photo-1682467612877-f9b5e55ff2af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM1fEpwZzZLaWRsLUhrfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      />
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
